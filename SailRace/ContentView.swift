@@ -16,7 +16,11 @@ struct ContentView: View {
 //        animation: .default)
 //    private var items: FetchedResults<Item>
 
-    @FetchRequest(sortDescriptors: []) var skippers: FetchedResults<SkipperEntity>
+//    @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "boatNumber", ascending: true)], predicate:NSPredicate(format: "boatNumber < '27'"))
+//    var skippers: FetchedResults<SkipperEntity>
+    
+    @State var skippers = [SkipperEntity]()
+    @State var filterByText = ""
     
     var body: some View {
         
@@ -24,59 +28,102 @@ struct ContentView: View {
             Button(action: addItem) {
                 Label("Add Item", systemImage: "plus")
             }
+            
+            TextField("Filter Text", text: $filterByText) { _ in
+                // Fetch new data
+                fetchData()
+            }
+                .border(Color.black, width: 1)
+                .padding()
+            
             List {
                 ForEach(skippers) {skipper in
                     
-                    HStack {
-                        Text(skipper.name ?? "No name")
-                            .onTapGesture {
-                                skipper.name = "Neil"
-                                try! viewContext.save()
-                            }
-                        Spacer()
-                        Text(skipper.boatNumber ?? "No boat number")
-                            .onTapGesture {
-                                viewContext.delete(skipper)
-                                try! viewContext.save()
+                //  Text("\(skipper.name ?? "No name"),
+                //  Boat Number: \(skipper.boatNumber ?? "No boat Number")")
+                //  .onTapGesture {
+                //
+                                        
+                            
+                                HStack {
+                                    Text(skipper.name ?? "No name")
+                                        .onTapGesture {
+                                            skipper.name = "Neil"
+                                            try! viewContext.save()
+                                        }
+                                    Spacer()
+                                    Text(skipper.boatNumber ?? "No boat number")
+                                        .onTapGesture {
+            
+                                           // Delete
+                                            viewContext.delete(skipper)
+                                            try! viewContext.save()
+            
+                                         //   Update
+                                         //   skipper.boatNumber = "01"
+                                         //   try! viewContext.save()
+                                        }
+                                }
 
-//                                skipper.boatNumber = "01"
-//                                try! viewContext.save()
-                            }
-                    }
                 }
             }
+            
+            //        NavigationView {
+            //            List {
+            //                ForEach(items) { item in
+            //                    NavigationLink {
+            //                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
+            //                    } label: {
+            //                        Text(item.timestamp!, formatter: itemFormatter)
+            //                    }
+            //                }
+            //                .onDelete(perform: deleteItems)
+            //            }
+            //            .toolbar {
+            //                ToolbarItem(placement: .navigationBarTrailing) {
+            //                    EditButton()
+            //                }
+            //                ToolbarItem {
+            //                    Button(action: addItem) {
+            //                        Label("Add Item", systemImage: "plus")
+            //                    }
+            //                }
+            //            }
+            //            Text("Select an item")
+            //        }
         }
+        .onChange(of: filterByText) { newValue in
+            fetchData()
+        }
+    }
+    
+    func fetchData() {
         
-//        NavigationView {
-//            List {
-//                ForEach(items) { item in
-//                    NavigationLink {
-//                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-//                    } label: {
-//                        Text(item.timestamp!, formatter: itemFormatter)
-//                    }
-//                }
-//                .onDelete(perform: deleteItems)
-//            }
-//            .toolbar {
-//                ToolbarItem(placement: .navigationBarTrailing) {
-//                    EditButton()
-//                }
-//                ToolbarItem {
-//                    Button(action: addItem) {
-//                        Label("Add Item", systemImage: "plus")
-//                    }
-//                }
-//            }
-//            Text("Select an item")
-//        }
+        // Create fetch request
+        let request = SkipperEntity.fetchRequest()
+        
+        // Set sort descriptors and predicates
+        request.sortDescriptors = [NSSortDescriptor(key: "boatNumber", ascending: true)]
+        request.predicate = NSPredicate(format: "name contains %@", filterByText)
+        
+        // Execute the fetch
+        DispatchQueue.main.async {
+            do {
+                  let results = try viewContext.fetch(request)
+                // Update the state property
+                self.skippers = results
+                 }
+                 catch {
+                     print(error.localizedDescription)
+                 }
+        }
     }
 
     private func addItem() {
         
         let s = SkipperEntity(context: viewContext)
         s.name = "Trevor"
-        s.boatNumber = "31"
+        s.boatNumber = String(Int.random(in: 0...99))
      
             do {
                try viewContext.save()

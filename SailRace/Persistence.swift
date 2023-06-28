@@ -16,6 +16,7 @@ struct PersistenceController {
         for _ in 0..<10 {
             let newItem = SkipperEntity(context: viewContext)
             newItem.name = "Vinnie"
+            newItem.boatNumber
         }
         do {
             try viewContext.save()
