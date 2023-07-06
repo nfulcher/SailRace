@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		4131D0E52A44D1E1003E0815 /* SailRaceApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4131D0E42A44D1E1003E0815 /* SailRaceApp.swift */; };
-		4131D0E72A44D1E1003E0815 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4131D0E62A44D1E1003E0815 /* ContentView.swift */; };
+		4131D0E72A44D1E1003E0815 /* SkipperView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4131D0E62A44D1E1003E0815 /* SkipperView.swift */; };
 		4131D0E92A44D1E4003E0815 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4131D0E82A44D1E4003E0815 /* Assets.xcassets */; };
 		4131D0EC2A44D1E4003E0815 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4131D0EB2A44D1E4003E0815 /* Preview Assets.xcassets */; };
 		4131D0EE2A44D1E4003E0815 /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4131D0ED2A44D1E4003E0815 /* Persistence.swift */; };
@@ -20,12 +20,15 @@
 		4131D10E2A4CBFB9003E0815 /* SkipperEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4131D1082A4CBFB9003E0815 /* SkipperEntity+CoreDataClass.swift */; };
 		4131D10F2A4CBFB9003E0815 /* SkipperEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4131D1092A4CBFB9003E0815 /* SkipperEntity+CoreDataProperties.swift */; };
 		4131D1112A4E16BC003E0815 /* EventView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4131D1102A4E16BC003E0815 /* EventView.swift */; };
+		4131D1132A54A1AF003E0815 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4131D1122A54A1AF003E0815 /* HomeView.swift */; };
+		4131D1172A54A3D8003E0815 /* RaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4131D1162A54A3D8003E0815 /* RaceView.swift */; };
+		4131D1192A55F79D003E0815 /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4131D1182A55F79D003E0815 /* EventDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		4131D0E12A44D1E1003E0815 /* SailRace.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SailRace.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		4131D0E42A44D1E1003E0815 /* SailRaceApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SailRaceApp.swift; sourceTree = "<group>"; };
-		4131D0E62A44D1E1003E0815 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		4131D0E62A44D1E1003E0815 /* SkipperView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkipperView.swift; sourceTree = "<group>"; };
 		4131D0E82A44D1E4003E0815 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		4131D0EB2A44D1E4003E0815 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4131D0ED2A44D1E4003E0815 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
@@ -37,6 +40,9 @@
 		4131D1082A4CBFB9003E0815 /* SkipperEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SkipperEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		4131D1092A4CBFB9003E0815 /* SkipperEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SkipperEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		4131D1102A4E16BC003E0815 /* EventView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventView.swift; sourceTree = "<group>"; };
+		4131D1122A54A1AF003E0815 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = "../../RC Sail Race/RC Sail Race/HomeView.swift"; sourceTree = "<group>"; };
+		4131D1162A54A3D8003E0815 /* RaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceView.swift; sourceTree = "<group>"; };
+		4131D1182A55F79D003E0815 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,8 +76,11 @@
 			isa = PBXGroup;
 			children = (
 				4131D0E42A44D1E1003E0815 /* SailRaceApp.swift */,
-				4131D0E62A44D1E1003E0815 /* ContentView.swift */,
+				4131D1122A54A1AF003E0815 /* HomeView.swift */,
+				4131D0E62A44D1E1003E0815 /* SkipperView.swift */,
 				4131D1102A4E16BC003E0815 /* EventView.swift */,
+				4131D1182A55F79D003E0815 /* EventDetailView.swift */,
+				4131D1162A54A3D8003E0815 /* RaceView.swift */,
 				4131D1032A44D484003E0815 /* Model */,
 				4131D0E82A44D1E4003E0815 /* Assets.xcassets */,
 				4131D0ED2A44D1E4003E0815 /* Persistence.swift */,
@@ -178,11 +187,14 @@
 				4131D10B2A4CBFB9003E0815 /* EventEntity+CoreDataProperties.swift in Sources */,
 				4131D10F2A4CBFB9003E0815 /* SkipperEntity+CoreDataProperties.swift in Sources */,
 				4131D0F12A44D1E4003E0815 /* SailRace.xcdatamodeld in Sources */,
-				4131D0E72A44D1E1003E0815 /* ContentView.swift in Sources */,
+				4131D1192A55F79D003E0815 /* EventDetailView.swift in Sources */,
+				4131D0E72A44D1E1003E0815 /* SkipperView.swift in Sources */,
 				4131D10E2A4CBFB9003E0815 /* SkipperEntity+CoreDataClass.swift in Sources */,
 				4131D10A2A4CBFB9003E0815 /* EventEntity+CoreDataClass.swift in Sources */,
+				4131D1132A54A1AF003E0815 /* HomeView.swift in Sources */,
 				4131D10C2A4CBFB9003E0815 /* RaceEntity+CoreDataClass.swift in Sources */,
 				4131D0E52A44D1E1003E0815 /* SailRaceApp.swift in Sources */,
+				4131D1172A54A3D8003E0815 /* RaceView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

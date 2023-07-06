@@ -14,7 +14,8 @@ struct EventView: View {
     @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)]) var events: FetchedResults<EventEntity>
     
     var body: some View {
-        
+        NavigationStack {
+            
         VStack {
             Button(action: addEvent) {
                 Label("Add Event", systemImage: "plus")
@@ -23,21 +24,23 @@ struct EventView: View {
                 ForEach(events) {event in
                     
                     HStack{
+                        NavigationLink(destination: EventDetailView()) {
+                            
                         Text(event.name ?? "")
-                            .onTapGesture {
-                                event.name = "Whittlingham"
-                                try! viewContext.save()
-                            }
-                            .onLongPressGesture {
-                                // Delete
-                                viewContext.delete(event)
-                                try! viewContext.save()
-                            }
-                        
+//                            .onTapGesture {
+//                                event.name = "Whittlingham"
+//                                try! viewContext.save()
+//                            }
+//                            .onLongPressGesture {
+//                                // Delete
+//                                viewContext.delete(event)
+//                                try! viewContext.save()
+//                            }
+                    }
                         Spacer()
                         
-                       Text(event.date?.displayFormat ?? "")
-                 
+                        Text(event.date?.displayFormat ?? "")
+                        
                             .onTapGesture {
                                 
                                 // Update
@@ -60,6 +63,7 @@ struct EventView: View {
                 }
             }
         }
+    }
     }
     
     private func addEvent() {

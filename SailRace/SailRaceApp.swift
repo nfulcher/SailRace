@@ -13,7 +13,8 @@ struct SailRaceApp: App {
 
     var body: some Scene {
         WindowGroup {
-            EventView()
+ //           EventView()
+            HomeView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
         }
     }
