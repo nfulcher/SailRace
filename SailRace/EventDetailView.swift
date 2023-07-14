@@ -6,44 +6,51 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct EventDetailView: View {
     
+    // Paul Hudson Tutorial 6/7
+    @FetchRequest var fetchRequest: FetchedResults<EventEntity>
+    
     @Environment(\.managedObjectContext) private var viewContext
-  
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)], predicate: NSPredicate(format: "name == 'Whittlingham'")) var events: FetchedResults<EventEntity>
     
-// original    @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)]) var events: FetchedResults<EventEntity>
+ // Original
+//    @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)], predicate: NSPredicate(format: "name == 'Whittlingham'")) var events: FetchedResults<EventEntity>
     
-//  from recipe app  @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)], predicate: NSPredicate(format: "featured == true")) var recipes: FetchedResults<Recipe>
+  // Test FetchRequest
+//    @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)], predicate: NSPredicate(format: "name = %@", "Whittlingham")) var events: FetchedResults<EventEntity>
     
     var body: some View {
         
-        
         VStack  {
-
-            Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
             
-            List {
-                ForEach(events) {event in
-                    
-                    HStack{
-                        
-                        Text(event.name ?? "")
-                        
-                        Spacer()
-                        
-                        Text(event.date?.displayFormat ?? "")
-                    }
+            // Paul Hudson tutorial
+            
+            List(fetchRequest, id: \.self) { event in
+                HStack {
+                    //  Text("\(event.wrappedName)")
+                    Text(event.name ?? "")
+                    Spacer()
+                    Text(event.date?.eventDisplayFormat ?? "")
                 }
             }
-            
+            SkipperAvailableView()
         }
+    }
+    
+    // Paul Hudson Tutorial 6/7
+    init(filter: Date) {
+        _fetchRequest = FetchRequest<EventEntity>(sortDescriptors: [], predicate:
+                                                    NSPredicate(format: "date = %@", filter as CVarArg))
+        //     NSPredicate(format: "name = %@ AND date > %@", filter, Date() as CVarArg))
+        
+        
     }
 }
 
-struct EventDetailView_Previews: PreviewProvider {
-    static var previews: some View {
-        EventDetailView()
-    }
-}
+//struct EventDetailView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        EventDetailView()
+//    }
+//}

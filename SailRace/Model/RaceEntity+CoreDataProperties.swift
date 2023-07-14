@@ -2,7 +2,7 @@
 //  RaceEntity+CoreDataProperties.swift
 //  SailRace
 //
-//  Created by Neil Fulcher on 28/06/2023.
+//  Created by Neil Fulcher on 14/07/2023.
 //
 //
 
@@ -17,9 +17,10 @@ extension RaceEntity {
     }
 
     @NSManaged public var eventName: String?
-    @NSManaged public var raceNumber: Int64
     @NSManaged public var name: String?
     @NSManaged public var placing: String?
+    @NSManaged public var raceNumber: Int64
+    @NSManaged public var raceID: UUID?
     @NSManaged public var event: EventEntity?
     @NSManaged public var racers: NSSet?
 

@@ -2,6 +2,7 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="21754" systemVersion="22F66" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="EventEntity" representedClassName="EventEntity" syncable="YES">
         <attribute name="date" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="eventID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <relationship name="competitors" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SkipperEntity" inverseName="event" inverseEntity="SkipperEntity"/>
         <relationship name="races" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RaceEntity" inverseName="event" inverseEntity="RaceEntity"/>
@@ -13,6 +14,7 @@
         <attribute name="eventName" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="placing" optional="YES" attributeType="String"/>
+        <attribute name="raceID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <attribute name="raceNumber" optional="YES" attributeType="Integer 64" defaultValueString="0" usesScalarValueType="YES"/>
         <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EventEntity" inverseName="races" inverseEntity="EventEntity"/>
         <relationship name="racers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="SkipperEntity" inverseName="races" inverseEntity="SkipperEntity"/>
@@ -20,6 +22,7 @@
     <entity name="SkipperEntity" representedClassName="SkipperEntity" syncable="YES">
         <attribute name="boatNumber" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
+        <attribute name="skipperID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
         <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EventEntity" inverseName="competitors" inverseEntity="EventEntity"/>
         <relationship name="races" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RaceEntity" inverseName="racers" inverseEntity="RaceEntity"/>
     </entity>

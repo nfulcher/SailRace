@@ -11,78 +11,66 @@ import CoreData
 struct SkipperView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
-    //    @FetchRequest(
-    //        sortDescriptors: [NSSortDescriptor(keyPath: \Item.timestamp, ascending: true)],
-    //        animation: .default)
-    //    private var items: FetchedResults<Item>
+    @State private var skipperName = ""
+    @State private var boatNumber = ""
     
     @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "boatNumber", ascending: true)]) var skippers: FetchedResults<SkipperEntity>
     
     var body: some View {
+       
         
-        VStack {
-            Button(action: addItem) {
-                Label("Add Skipper", systemImage: "plus")
-            }
-            List {
-                ForEach(skippers) {skipper in
+        VStack (alignment: .leading) {
+            
+            Section("Add New Skipper") {
+                Form {
+                    TextField("Enter Skipper Name", text: $skipperName)
+                    TextField("Enter Boat Number", text: $boatNumber)
                     
-                    HStack {
-                        Text(skipper.name ?? "No name")
-                            .onTapGesture {
-                                skipper.name = "Neil"
-                                try! viewContext.save()
-                            }
-                        Spacer()
-                        Text(skipper.boatNumber ?? "No boat number")
-                            .onTapGesture {
-              
-                                // Update
-                                skipper.boatNumber = "01"
-                                try! viewContext.save()
-                            }
-                            .onLongPressGesture {
-                                // Delete
-                                 viewContext.delete(skipper)
-                                 try! viewContext.save()
-                            }
+                    Button {
+                        addSkipper()
+                    } label: {
+                        Text("Add Skipper")
                     }
+                    .buttonStyle(.borderedProminent)
+
                 }
             }
+            Section("Skippers") {
+                List {
+                    ForEach(skippers) { skipper in
+                        
+                        HStack {
+                            Text(skipper.name ?? "No name")
+                                
+                            Spacer()
+                            Text(skipper.boatNumber ?? "No boat number")
+                        }
+                    }
+                    .onDelete(perform: removeSkipper)
+                }
+                .listStyle(PlainListStyle())
+            }
         }
-        
-        //        NavigationView {
-        //            List {
-        //                ForEach(items) { item in
-        //                    NavigationLink {
-        //                        Text("Item at \(item.timestamp!, formatter: itemFormatter)")
-        //                    } label: {
-        //                        Text(item.timestamp!, formatter: itemFormatter)
-        //                    }
-        //                }
-        //                .onDelete(perform: deleteItems)
-        //            }
-        //            .toolbar {
-        //                ToolbarItem(placement: .navigationBarTrailing) {
-        //                    EditButton()
-        //                }
-        //                ToolbarItem {
-        //                    Button(action: addItem) {
-        //                        Label("Add Item", systemImage: "plus")
-        //                    }
-        //                }
-        //            }
-        //            Text("Select an item")
-        //        }
     }
     
+    func removeSkipper(at offsets: IndexSet) {
+        for index in offsets {
+            let skipper = skippers[index]
+            viewContext.delete(skipper)
+            
+            do {
+                try viewContext.save()
+            }
+            catch {
+                // Error with string
+            }
+        }
+    }
     
-    
-    private func addItem() {
-        
+    private func addSkipper() {
         let s = SkipperEntity(context: viewContext)
-        s.name = "Trevor"
-        s.boatNumber = String(Int.random(in: 0...99))
+        s.name = skipperName
+        s.boatNumber = boatNumber
         
         do {
             try viewContext.save()
@@ -90,37 +78,25 @@ struct SkipperView: View {
         catch {
             // Error with string
         }
+        skipperName = ""
+        boatNumber = ""
     }
-    //        withAnimation {
-    //            let newItem = Item(context: viewContext)
-    //            newItem.timestamp = Date()
-    //
-    //            do {
-    //                try viewContext.save()
-    //            } catch {
-    //                // Replace this implementation with code to handle the error appropriately.
-    //                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-    //                let nsError = error as NSError
-    //                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-    //            }
-    //        }
-    //    }
     
-    //    private func deleteItems(offsets: IndexSet) {
-    //        withAnimation {
-    //            offsets.map { items[$0] }.forEach(viewContext.delete)
-    //
-    //            do {
-    //                try viewContext.save()
-    //            } catch {
-    //                // Replace this implementation with code to handle the error appropriately.
-    //                // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-    //                let nsError = error as NSError
-    //                fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-    //            }
-    //        }
-    //    }
-    //}
+    private func addItem() {
+        
+        withAnimation {
+            let s = SkipperEntity(context: viewContext)
+            s.name = "Trevor"
+            s.boatNumber = String(Int.random(in: 0...99))
+            
+            do {
+                try viewContext.save()
+            }
+            catch {
+                // Error with string
+            }
+        }
+    }
 }
 private let itemFormatter: DateFormatter = {
     let formatter = DateFormatter()
@@ -129,7 +105,7 @@ private let itemFormatter: DateFormatter = {
     return formatter
 }()
 
-struct ContentView_Previews: PreviewProvider {
+struct SkipperView_Previews: PreviewProvider {
     static var previews: some View {
         SkipperView().environment(\.managedObjectContext, PersistenceController.preview.container.viewContext)
     }

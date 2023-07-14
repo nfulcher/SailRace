@@ -36,7 +36,7 @@ struct RaceView: View {
                         
                         Spacer()
                         
-                       Text(race.eventName ?? "")
+                        Text(race.eventName ?? "")
                             .onTapGesture {
                                 race.eventName = "Winter Series"
                                 try! viewContext.save()

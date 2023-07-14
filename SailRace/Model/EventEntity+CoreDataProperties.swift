@@ -2,7 +2,7 @@
 //  EventEntity+CoreDataProperties.swift
 //  SailRace
 //
-//  Created by Neil Fulcher on 28/06/2023.
+//  Created by Neil Fulcher on 14/07/2023.
 //
 //
 
@@ -16,27 +16,16 @@ extension EventEntity {
         return NSFetchRequest<EventEntity>(entityName: "EventEntity")
     }
 
-    @NSManaged public var name: String?
     @NSManaged public var date: Date?
-    @NSManaged public var races: NSSet?
+    @NSManaged public var name: String?
+    @NSManaged public var eventID: UUID?
     @NSManaged public var competitors: NSSet?
-
-}
-
-// MARK: Generated accessors for races
-extension EventEntity {
-
-    @objc(addRacesObject:)
-    @NSManaged public func addToRaces(_ value: RaceEntity)
-
-    @objc(removeRacesObject:)
-    @NSManaged public func removeFromRaces(_ value: RaceEntity)
-
-    @objc(addRaces:)
-    @NSManaged public func addToRaces(_ values: NSSet)
-
-    @objc(removeRaces:)
-    @NSManaged public func removeFromRaces(_ values: NSSet)
+    @NSManaged public var races: NSSet?
+    
+    // Added these variables to assist filtering fetch request = Core Data Swift 6/7 Paul Hudson
+//    var  wrappedName: String {
+//        name ?? "Unknown"
+//    }
 
 }
 
@@ -54,6 +43,23 @@ extension EventEntity {
 
     @objc(removeCompetitors:)
     @NSManaged public func removeFromCompetitors(_ values: NSSet)
+
+}
+
+// MARK: Generated accessors for races
+extension EventEntity {
+
+    @objc(addRacesObject:)
+    @NSManaged public func addToRaces(_ value: RaceEntity)
+
+    @objc(removeRacesObject:)
+    @NSManaged public func removeFromRaces(_ value: RaceEntity)
+
+    @objc(addRaces:)
+    @NSManaged public func addToRaces(_ values: NSSet)
+
+    @objc(removeRaces:)
+    @NSManaged public func removeFromRaces(_ values: NSSet)
 
 }
 

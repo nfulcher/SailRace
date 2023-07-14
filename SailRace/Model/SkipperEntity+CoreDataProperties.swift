@@ -2,7 +2,7 @@
 //  SkipperEntity+CoreDataProperties.swift
 //  SailRace
 //
-//  Created by Neil Fulcher on 28/06/2023.
+//  Created by Neil Fulcher on 14/07/2023.
 //
 //
 
@@ -18,6 +18,7 @@ extension SkipperEntity {
 
     @NSManaged public var boatNumber: String?
     @NSManaged public var name: String?
+    @NSManaged public var skipperID: UUID?
     @NSManaged public var event: EventEntity?
     @NSManaged public var races: NSSet?
 
