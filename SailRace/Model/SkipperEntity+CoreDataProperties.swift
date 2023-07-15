@@ -21,6 +21,13 @@ extension SkipperEntity {
     @NSManaged public var skipperID: UUID?
     @NSManaged public var event: EventEntity?
     @NSManaged public var races: NSSet?
+    
+    public var wrappedName: String {
+        name ?? "Unknown skipper"
+    }
+    public var wrappedBoatNumber: String {
+        boatNumber ?? "Unknown boat number"
+    }
 
 }
 

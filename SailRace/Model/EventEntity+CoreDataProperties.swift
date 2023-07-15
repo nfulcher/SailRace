@@ -22,6 +22,23 @@ extension EventEntity {
     @NSManaged public var competitors: NSSet?
     @NSManaged public var races: NSSet?
     
+    // 7/7 Paul Hudson
+    public var wrappedEventName: String {
+        name ?? "Unknown Event"
+    }
+    
+    public var wrappedEventDate: Date {
+        date ?? Date()
+    }
+    
+    public var competitorArray: [SkipperEntity] {
+        let set = competitors as? Set<SkipperEntity> ?? []
+        
+        return set.sorted {
+            $0.wrappedName < $1.wrappedName
+        }
+    }
+    
     // Added these variables to assist filtering fetch request = Core Data Swift 6/7 Paul Hudson
 //    var  wrappedName: String {
 //        name ?? "Unknown"

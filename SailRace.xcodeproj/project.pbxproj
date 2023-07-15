@@ -24,6 +24,7 @@
 		415AF23E2A6188630075DBE0 /* RaceEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415AF2382A6188630075DBE0 /* RaceEntity+CoreDataClass.swift */; };
 		415AF23F2A6188630075DBE0 /* RaceEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415AF2392A6188630075DBE0 /* RaceEntity+CoreDataProperties.swift */; };
 		415AF2412A61F1E50075DBE0 /* SkipperAvailableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415AF2402A61F1E50075DBE0 /* SkipperAvailableView.swift */; };
+		415AF2432A62E6580075DBE0 /* SkipperAllocatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415AF2422A62E6580075DBE0 /* SkipperAllocatedView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -45,6 +46,7 @@
 		415AF2382A6188630075DBE0 /* RaceEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RaceEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
 		415AF2392A6188630075DBE0 /* RaceEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RaceEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		415AF2402A61F1E50075DBE0 /* SkipperAvailableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkipperAvailableView.swift; sourceTree = "<group>"; };
+		415AF2422A62E6580075DBE0 /* SkipperAllocatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkipperAllocatedView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +83,7 @@
 				4131D1122A54A1AF003E0815 /* HomeView.swift */,
 				4131D0E62A44D1E1003E0815 /* SkipperView.swift */,
 				415AF2402A61F1E50075DBE0 /* SkipperAvailableView.swift */,
+				415AF2422A62E6580075DBE0 /* SkipperAllocatedView.swift */,
 				4131D1102A4E16BC003E0815 /* EventView.swift */,
 				4131D1182A55F79D003E0815 /* EventDetailView.swift */,
 				4131D1162A54A3D8003E0815 /* RaceView.swift */,
@@ -191,6 +194,7 @@
 				4131D1192A55F79D003E0815 /* EventDetailView.swift in Sources */,
 				4131D0E72A44D1E1003E0815 /* SkipperView.swift in Sources */,
 				415AF23F2A6188630075DBE0 /* RaceEntity+CoreDataProperties.swift in Sources */,
+				415AF2432A62E6580075DBE0 /* SkipperAllocatedView.swift in Sources */,
 				415AF2412A61F1E50075DBE0 /* SkipperAvailableView.swift in Sources */,
 				415AF23A2A6188630075DBE0 /* EventEntity+CoreDataClass.swift in Sources */,
 				415AF23B2A6188630075DBE0 /* EventEntity+CoreDataProperties.swift in Sources */,

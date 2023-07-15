@@ -13,13 +13,10 @@ struct EventView: View {
     
     @State private var eventName = ""
     @State private var eventDate = Date()
+
+    @State private var eventID = UUID()
     
-    // Paul Hudson tutorial 6/7
-    @State private var eventNameFilter = "Fleetwood"
-    
-    
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "date", ascending: true)]) var events: FetchedResults<EventEntity>
-    
+    @FetchRequest(sortDescriptors: []) var events: FetchedResults<EventEntity>
     var body: some View {
         
         NavigationStack {
@@ -44,7 +41,7 @@ struct EventView: View {
                 Section("Existing Events") {
                     List {
                         ForEach(events) { event in
-                            NavigationLink(destination: EventDetailView(filter: event.date ?? Date())) {
+                         NavigationLink(destination: EventDetailView(filter: event.date ?? Date())) {
                                 HStack {
                                     Text(event.name ?? "")
                                     Spacer()
