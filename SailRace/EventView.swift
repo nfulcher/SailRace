@@ -22,8 +22,9 @@ struct EventView: View {
         NavigationStack {
             VStack (alignment: .leading) {
                 
-                Section("New Event") {
+      //          Section("New Event") {
                     Form {
+                        Section("New Event") {
                         TextField("Enter Event Name", text: $eventName)
                         DatePicker("Date/Time", selection: $eventDate)
                             .datePickerStyle(DefaultDatePickerStyle())
@@ -37,9 +38,9 @@ struct EventView: View {
                     }
                    
                 }
-              
-                Section("Existing Events") {
-                    List {
+                
+                 List {
+                        Section("Existing Events") {
                         ForEach(events) { event in
                          NavigationLink(destination: EventDetailView(filter: event.date ?? Date())) {
                                 HStack {
@@ -51,7 +52,7 @@ struct EventView: View {
                         }
                         .onDelete(perform: removeEvent)
                     }
-                    .listStyle(PlainListStyle())
+          //          .listStyle(PlainListStyle())
                 }
             }
         }
@@ -134,5 +135,7 @@ private let itemFormatter: DateFormatter = {
 struct EventView_Previews: PreviewProvider {
     static var previews: some View {
         EventView()
+        @Environment(\.managedObjectContext) var viewContext
+        @FetchRequest(sortDescriptors: []) var events: FetchedResults<EventEntity>
     }
 }

@@ -1,5 +1,5 @@
 //
-//  ContentView.swift
+//  SkipperView.swift
 //  SailRace
 //
 //  Created by Neil Fulcher on 22/06/2023.
@@ -17,12 +17,12 @@ struct SkipperView: View {
     @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "boatNumber", ascending: true)]) var skippers: FetchedResults<SkipperEntity>
     
     var body: some View {
-       
+        
         
         VStack (alignment: .leading) {
             
-            Section("Add New Skipper") {
-                Form {
+            Form {
+                Section("Add New Skipper") {
                     TextField("Enter Skipper Name", text: $skipperName)
                     TextField("Enter Boat Number", text: $boatNumber)
                     
@@ -32,16 +32,17 @@ struct SkipperView: View {
                         Text("Add Skipper")
                     }
                     .buttonStyle(.borderedProminent)
-
+                    
                 }
             }
-            Section("Skippers") {
-                List {
+            
+            List {
+                Section("Skippers") {
                     ForEach(skippers) { skipper in
                         
                         HStack {
                             Text(skipper.name ?? "No name")
-                                
+                            
                             Spacer()
                             Text(skipper.boatNumber ?? "No boat number")
                         }
@@ -83,7 +84,6 @@ struct SkipperView: View {
     }
     
     private func addItem() {
-        
         withAnimation {
             let s = SkipperEntity(context: viewContext)
             s.name = "Trevor"
@@ -98,6 +98,7 @@ struct SkipperView: View {
         }
     }
 }
+
 private let itemFormatter: DateFormatter = {
     let formatter = DateFormatter()
     formatter.dateStyle = .short

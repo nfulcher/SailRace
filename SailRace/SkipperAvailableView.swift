@@ -38,7 +38,7 @@ struct SkipperAvailableView: View {
     
 
     
-    func allocateSkipperToEvent() {
+    public func allocateSkipperToEvent() {
      
         // Create an event
         let event = EventEntity(context: viewContext)
