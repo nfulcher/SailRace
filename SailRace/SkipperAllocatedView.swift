@@ -33,34 +33,34 @@ struct SkipperAllocatedView: View {
                 
                 .onDelete(perform: removeEvent)
                 
-                Button("Add Examples") {
-                    let skipper1 = SkipperEntity(context: viewContext)
-                    skipper1.name = "John Blythe"
-                    skipper1.boatNumber = "24"
-                    skipper1.event = EventEntity(context: viewContext)
-                    skipper1.event?.name = "Rutland Water"
-                    
-                    let skipper2 = SkipperEntity(context: viewContext)
-                    skipper2.name = "Dave Ditton"
-                    skipper2.boatNumber = "46"
-                    skipper2.event = EventEntity(context: viewContext)
-                    skipper2.event?.name = "Rutland Water"
-                    
-                    let skipper3 = SkipperEntity(context: viewContext)
-                    skipper3.name = "Colin Camo"
-                    skipper3.boatNumber = "19"
-                    skipper3.event = EventEntity(context: viewContext)
-                    skipper3.event?.name = "Breydon Water"
-                    
-                    let skipper4 = SkipperEntity(context: viewContext)
-                    skipper4.name = "Brian Jacob"
-                    skipper4.boatNumber = "144"
-                    skipper4.event = EventEntity(context: viewContext)
-                    skipper4.event?.name = "Filby Broad"
-                    
-                    try? viewContext.save()
-                    
-                }
+//                Button("Add Examples") {
+//                    let skipper1 = SkipperEntity(context: viewContext)
+//                    skipper1.name = "John Blythe"
+//                    skipper1.boatNumber = "24"
+//                    skipper1.event = EventEntity(context: viewContext)
+//                    skipper1.event?.name = "Rutland Water"
+//                    
+//                    let skipper2 = SkipperEntity(context: viewContext)
+//                    skipper2.name = "Dave Ditton"
+//                    skipper2.boatNumber = "46"
+//                    skipper2.event = EventEntity(context: viewContext)
+//                    skipper2.event?.name = "Rutland Water"
+//                    
+//                    let skipper3 = SkipperEntity(context: viewContext)
+//                    skipper3.name = "Colin Camo"
+//                    skipper3.boatNumber = "19"
+//                    skipper3.event = EventEntity(context: viewContext)
+//                    skipper3.event?.name = "Breydon Water"
+//                    
+//                    let skipper4 = SkipperEntity(context: viewContext)
+//                    skipper4.name = "Brian Jacob"
+//                    skipper4.boatNumber = "144"
+//                    skipper4.event = EventEntity(context: viewContext)
+//                    skipper4.event?.name = "Filby Broad"
+//                    
+//                    try? viewContext.save()
+//                    
+//                }
             }
         }
     }

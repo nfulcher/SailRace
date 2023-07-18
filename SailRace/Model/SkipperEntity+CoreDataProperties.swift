@@ -2,7 +2,7 @@
 //  SkipperEntity+CoreDataProperties.swift
 //  SailRace
 //
-//  Created by Neil Fulcher on 14/07/2023.
+//  Created by Neil Fulcher on 17/07/2023.
 //
 //
 
@@ -19,7 +19,7 @@ extension SkipperEntity {
     @NSManaged public var boatNumber: String?
     @NSManaged public var name: String?
     @NSManaged public var skipperID: UUID?
-    @NSManaged public var event: EventEntity?
+    @NSManaged public var event: NSSet?
     @NSManaged public var races: NSSet?
     
     public var wrappedName: String {
@@ -28,6 +28,23 @@ extension SkipperEntity {
     public var wrappedBoatNumber: String {
         boatNumber ?? "Unknown boat number"
     }
+
+}
+
+// MARK: Generated accessors for event
+extension SkipperEntity {
+
+    @objc(addEventObject:)
+    @NSManaged public func addToEvent(_ value: EventEntity)
+
+    @objc(removeEventObject:)
+    @NSManaged public func removeFromEvent(_ value: EventEntity)
+
+    @objc(addEvent:)
+    @NSManaged public func addToEvent(_ values: NSSet)
+
+    @objc(removeEvent:)
+    @NSManaged public func removeFromEvent(_ values: NSSet)
 
 }
 

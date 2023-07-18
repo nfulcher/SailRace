@@ -21,8 +21,6 @@ struct EventView: View {
         
         NavigationStack {
             VStack (alignment: .leading) {
-                
-      //          Section("New Event") {
                     Form {
                         Section("New Event") {
                         TextField("Enter Event Name", text: $eventName)
@@ -36,7 +34,6 @@ struct EventView: View {
                         }
                         .buttonStyle(.borderedProminent)
                     }
-                   
                 }
                 
                  List {
@@ -101,7 +98,6 @@ struct EventView: View {
         
         // Save context
         try! viewContext.save()
-        
     }
 }
 
@@ -117,8 +113,7 @@ extension Date {
             .day(.twoDigits)
             .month(.twoDigits)
             .year(.twoDigits)
-           
-            
+ 
         )
     }
 }
@@ -129,8 +124,6 @@ private let itemFormatter: DateFormatter = {
     formatter.timeStyle = .short
     return formatter
 }()
-
-
 
 struct EventView_Previews: PreviewProvider {
     static var previews: some View {

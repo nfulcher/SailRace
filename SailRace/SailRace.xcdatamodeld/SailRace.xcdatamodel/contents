@@ -23,7 +23,7 @@
         <attribute name="boatNumber" optional="YES" attributeType="String"/>
         <attribute name="name" optional="YES" attributeType="String"/>
         <attribute name="skipperID" optional="YES" attributeType="UUID" usesScalarValueType="NO"/>
-        <relationship name="event" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="EventEntity" inverseName="competitors" inverseEntity="EventEntity"/>
+        <relationship name="event" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="EventEntity" inverseName="competitors" inverseEntity="EventEntity"/>
         <relationship name="races" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="RaceEntity" inverseName="racers" inverseEntity="RaceEntity"/>
     </entity>
 </model>

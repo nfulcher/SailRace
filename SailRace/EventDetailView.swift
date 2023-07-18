@@ -24,6 +24,7 @@ struct EventDetailView: View {
     var body: some View {
         
         VStack  {
+            
             // Display selected Event detail
             List(fetchRequest, id: \.self) { event in
                 HStack {
