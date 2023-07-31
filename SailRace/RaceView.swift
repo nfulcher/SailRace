@@ -11,7 +11,15 @@ import CoreData
 struct RaceView: View {
     @Environment(\.managedObjectContext) private var viewContext
     
-    @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)]) var races: FetchedResults<RaceEntity>
+    
+    // Needed for SkipperAllocatedView Code
+        @FetchRequest(sortDescriptors: []) var events: FetchedResults<EventEntity>
+    
+    // Add EventEntity fetch
+//    @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)]) var event: FetchedResults<EventEntity>
+    
+    
+    @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "raceNumber", ascending: true)]) var races: FetchedResults<RaceEntity>
     
     var body: some View {
         
@@ -19,13 +27,24 @@ struct RaceView: View {
             Button(action: addRace) {
                 Label("Add Race", systemImage: "plus")
             }
+            
+            HStack {
+          //      Text($event.wrappedEventName)
+                Text("Event:")
+                Spacer()
+       //         Text(event.wrappedEventDate.eventDisplayFormat)
+                //   Text(event.date?.eventDisplayFormat ?? "")
+            }
+            
+            
             List {
                 ForEach(races) {race in
                     
                     HStack{
-                        Text(race.name ?? "")
+                        Text("Race No:")
+                        Text(String(race.raceNumber))
                             .onTapGesture {
-                                race.name = "Race 8"
+                                race.raceNumber = 9
                                 try! viewContext.save()
                             }
                             .onLongPressGesture {
@@ -33,24 +52,13 @@ struct RaceView: View {
                                 viewContext.delete(race)
                                 try! viewContext.save()
                             }
+                        Spacer()
+                        Text("Boat No:")
+                        Text("441")
+                        
                         
                         Spacer()
-                        
-                        Text(race.eventName ?? "")
-                            .onTapGesture {
-                                race.eventName = "Winter Series"
-                                try! viewContext.save()
-                            }
-                        
-                        Spacer()
-                        
-                        Text(String(race.raceNumber))
-                            .onTapGesture {
-                                race.raceNumber = 7
-                                try! viewContext.save()
-                            }
-                        Spacer()
-                        
+                        Text("Place:")
                         Text(race.placing ?? "")
                             .onTapGesture {
                                 race.placing = "2nd"
@@ -64,8 +72,8 @@ struct RaceView: View {
     
     private func addRace() {
         let e = RaceEntity(context: viewContext)
-        e.name = "Race 1"
-        e.eventName = "Summer Series"
+   //     e.name = "Race 1"
+   //     e.eventName = "Summer Series"
         e.raceNumber = 3
         e.placing = "DNF"
         
@@ -78,12 +86,6 @@ struct RaceView: View {
     }
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .short
-    return formatter
-}()
 
 struct RaceView_Previews: PreviewProvider {
     static var previews: some View {

@@ -34,22 +34,23 @@ struct SkipperView: View {
                     .buttonStyle(.borderedProminent)
                     
                 }
-            }
-            
-            List {
-                Section("Skippers") {
-                    ForEach(skippers) { skipper in
-                        
-                        HStack {
-                            Text(skipper.name ?? "No name")
+                //            }
+                
+                List {
+                    Section("Skippers") {
+                        ForEach(skippers) { skipper in
                             
-                            Spacer()
-                            Text(skipper.boatNumber ?? "No boat number")
+                            HStack {
+                                Text(skipper.name ?? "No name")
+                                
+                                Spacer()
+                                Text(skipper.boatNumber ?? "No boat number")
+                            }
                         }
+                        .onDelete(perform: removeSkipper)
                     }
-                    .onDelete(perform: removeSkipper)
+                    .listStyle(PlainListStyle())
                 }
-                .listStyle(PlainListStyle())
             }
         }
     }
@@ -98,13 +99,6 @@ struct SkipperView: View {
         }
     }
 }
-
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .medium
-    return formatter
-}()
 
 struct SkipperView_Previews: PreviewProvider {
     static var previews: some View {

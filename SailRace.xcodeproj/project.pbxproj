@@ -17,14 +17,15 @@
 		4131D1132A54A1AF003E0815 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4131D1122A54A1AF003E0815 /* HomeView.swift */; };
 		4131D1172A54A3D8003E0815 /* RaceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4131D1162A54A3D8003E0815 /* RaceView.swift */; };
 		4131D1192A55F79D003E0815 /* EventDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4131D1182A55F79D003E0815 /* EventDetailView.swift */; };
-		415AF23E2A6188630075DBE0 /* RaceEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415AF2382A6188630075DBE0 /* RaceEntity+CoreDataClass.swift */; };
-		415AF23F2A6188630075DBE0 /* RaceEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415AF2392A6188630075DBE0 /* RaceEntity+CoreDataProperties.swift */; };
+		414CA6652A76C9A000AF87C8 /* SkipperEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CA65F2A76C9A000AF87C8 /* SkipperEntity+CoreDataClass.swift */; };
+		414CA6662A76C9A000AF87C8 /* SkipperEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CA6602A76C9A000AF87C8 /* SkipperEntity+CoreDataProperties.swift */; };
+		414CA66D2A76CD2200AF87C8 /* EventEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CA6692A76CD2200AF87C8 /* EventEntity+CoreDataClass.swift */; };
+		414CA66E2A76CD2200AF87C8 /* EventEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CA66A2A76CD2200AF87C8 /* EventEntity+CoreDataProperties.swift */; };
+		414CA66F2A76CD2200AF87C8 /* RaceEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CA66B2A76CD2200AF87C8 /* RaceEntity+CoreDataClass.swift */; };
+		414CA6702A76CD2200AF87C8 /* RaceEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 414CA66C2A76CD2200AF87C8 /* RaceEntity+CoreDataProperties.swift */; };
 		415AF2412A61F1E50075DBE0 /* SkipperAvailableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415AF2402A61F1E50075DBE0 /* SkipperAvailableView.swift */; };
 		415AF2432A62E6580075DBE0 /* SkipperAllocatedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415AF2422A62E6580075DBE0 /* SkipperAllocatedView.swift */; };
-		415AF2482A65C8B50075DBE0 /* SkipperEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415AF2462A65C8B50075DBE0 /* SkipperEntity+CoreDataClass.swift */; };
-		415AF2492A65C8B50075DBE0 /* SkipperEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415AF2472A65C8B50075DBE0 /* SkipperEntity+CoreDataProperties.swift */; };
-		415AF24C2A65CA040075DBE0 /* EventEntity+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415AF24A2A65CA040075DBE0 /* EventEntity+CoreDataClass.swift */; };
-		415AF24D2A65CA040075DBE0 /* EventEntity+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415AF24B2A65CA040075DBE0 /* EventEntity+CoreDataProperties.swift */; };
+		415AF24F2A6B0FF10075DBE0 /* CoreDataRelationships.swift in Sources */ = {isa = PBXBuildFile; fileRef = 415AF24E2A6B0FF10075DBE0 /* CoreDataRelationships.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -39,14 +40,15 @@
 		4131D1122A54A1AF003E0815 /* HomeView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = HomeView.swift; path = "../../RC Sail Race/RC Sail Race/HomeView.swift"; sourceTree = "<group>"; };
 		4131D1162A54A3D8003E0815 /* RaceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaceView.swift; sourceTree = "<group>"; };
 		4131D1182A55F79D003E0815 /* EventDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailView.swift; sourceTree = "<group>"; };
-		415AF2382A6188630075DBE0 /* RaceEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RaceEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
-		415AF2392A6188630075DBE0 /* RaceEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RaceEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		414CA65F2A76C9A000AF87C8 /* SkipperEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SkipperEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		414CA6602A76C9A000AF87C8 /* SkipperEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SkipperEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		414CA6692A76CD2200AF87C8 /* EventEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		414CA66A2A76CD2200AF87C8 /* EventEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		414CA66B2A76CD2200AF87C8 /* RaceEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RaceEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
+		414CA66C2A76CD2200AF87C8 /* RaceEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RaceEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		415AF2402A61F1E50075DBE0 /* SkipperAvailableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkipperAvailableView.swift; sourceTree = "<group>"; };
 		415AF2422A62E6580075DBE0 /* SkipperAllocatedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkipperAllocatedView.swift; sourceTree = "<group>"; };
-		415AF2462A65C8B50075DBE0 /* SkipperEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SkipperEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
-		415AF2472A65C8B50075DBE0 /* SkipperEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "SkipperEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		415AF24A2A65CA040075DBE0 /* EventEntity+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventEntity+CoreDataClass.swift"; sourceTree = "<group>"; };
-		415AF24B2A65CA040075DBE0 /* EventEntity+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "EventEntity+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		415AF24E2A6B0FF10075DBE0 /* CoreDataRelationships.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataRelationships.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -87,6 +89,7 @@
 				4131D1102A4E16BC003E0815 /* EventView.swift */,
 				4131D1182A55F79D003E0815 /* EventDetailView.swift */,
 				4131D1162A54A3D8003E0815 /* RaceView.swift */,
+				415AF24E2A6B0FF10075DBE0 /* CoreDataRelationships.swift */,
 				4131D1032A44D484003E0815 /* Model */,
 				4131D0E82A44D1E4003E0815 /* Assets.xcassets */,
 				4131D0ED2A44D1E4003E0815 /* Persistence.swift */,
@@ -107,12 +110,12 @@
 		4131D1032A44D484003E0815 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				415AF24A2A65CA040075DBE0 /* EventEntity+CoreDataClass.swift */,
-				415AF24B2A65CA040075DBE0 /* EventEntity+CoreDataProperties.swift */,
-				415AF2462A65C8B50075DBE0 /* SkipperEntity+CoreDataClass.swift */,
-				415AF2472A65C8B50075DBE0 /* SkipperEntity+CoreDataProperties.swift */,
-				415AF2382A6188630075DBE0 /* RaceEntity+CoreDataClass.swift */,
-				415AF2392A6188630075DBE0 /* RaceEntity+CoreDataProperties.swift */,
+				414CA6692A76CD2200AF87C8 /* EventEntity+CoreDataClass.swift */,
+				414CA66A2A76CD2200AF87C8 /* EventEntity+CoreDataProperties.swift */,
+				414CA66B2A76CD2200AF87C8 /* RaceEntity+CoreDataClass.swift */,
+				414CA66C2A76CD2200AF87C8 /* RaceEntity+CoreDataProperties.swift */,
+				414CA65F2A76C9A000AF87C8 /* SkipperEntity+CoreDataClass.swift */,
+				414CA6602A76C9A000AF87C8 /* SkipperEntity+CoreDataProperties.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -187,20 +190,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				415AF24F2A6B0FF10075DBE0 /* CoreDataRelationships.swift in Sources */,
+				414CA6702A76CD2200AF87C8 /* RaceEntity+CoreDataProperties.swift in Sources */,
 				4131D0EE2A44D1E4003E0815 /* Persistence.swift in Sources */,
 				4131D1112A4E16BC003E0815 /* EventView.swift in Sources */,
-				415AF23E2A6188630075DBE0 /* RaceEntity+CoreDataClass.swift in Sources */,
+				414CA6662A76C9A000AF87C8 /* SkipperEntity+CoreDataProperties.swift in Sources */,
 				4131D0F12A44D1E4003E0815 /* SailRace.xcdatamodeld in Sources */,
-				415AF24C2A65CA040075DBE0 /* EventEntity+CoreDataClass.swift in Sources */,
-				415AF24D2A65CA040075DBE0 /* EventEntity+CoreDataProperties.swift in Sources */,
+				414CA66E2A76CD2200AF87C8 /* EventEntity+CoreDataProperties.swift in Sources */,
+				414CA66D2A76CD2200AF87C8 /* EventEntity+CoreDataClass.swift in Sources */,
 				4131D1192A55F79D003E0815 /* EventDetailView.swift in Sources */,
 				4131D0E72A44D1E1003E0815 /* SkipperView.swift in Sources */,
-				415AF23F2A6188630075DBE0 /* RaceEntity+CoreDataProperties.swift in Sources */,
 				415AF2432A62E6580075DBE0 /* SkipperAllocatedView.swift in Sources */,
 				415AF2412A61F1E50075DBE0 /* SkipperAvailableView.swift in Sources */,
-				415AF2482A65C8B50075DBE0 /* SkipperEntity+CoreDataClass.swift in Sources */,
+				414CA6652A76C9A000AF87C8 /* SkipperEntity+CoreDataClass.swift in Sources */,
 				4131D1132A54A1AF003E0815 /* HomeView.swift in Sources */,
-				415AF2492A65C8B50075DBE0 /* SkipperEntity+CoreDataProperties.swift in Sources */,
+				414CA66F2A76CD2200AF87C8 /* RaceEntity+CoreDataClass.swift in Sources */,
 				4131D0E52A44D1E1003E0815 /* SailRaceApp.swift in Sources */,
 				4131D1172A54A3D8003E0815 /* RaceView.swift in Sources */,
 			);

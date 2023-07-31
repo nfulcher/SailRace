@@ -16,13 +16,14 @@ struct EventView: View {
 
     @State private var eventID = UUID()
     
+   
     @FetchRequest(sortDescriptors: []) var events: FetchedResults<EventEntity>
     var body: some View {
         
         NavigationStack {
             VStack (alignment: .leading) {
-                    Form {
-                        Section("New Event") {
+                Form {
+                    Section("New Event") {
                         TextField("Enter Event Name", text: $eventName)
                         DatePicker("Date/Time", selection: $eventDate)
                             .datePickerStyle(DefaultDatePickerStyle())
@@ -34,22 +35,22 @@ struct EventView: View {
                         }
                         .buttonStyle(.borderedProminent)
                     }
-                }
-                
-                 List {
+                    
+                    List {
                         Section("Existing Events") {
-                        ForEach(events) { event in
-                         NavigationLink(destination: EventDetailView(filter: event.date ?? Date())) {
-                                HStack {
-                                    Text(event.name ?? "")
-                                    Spacer()
-                                    Text(event.date?.eventDisplayFormat ?? "")
+                            ForEach(events) { event in
+                                NavigationLink(destination: EventDetailView(filter: event.date ?? Date())) {
+                                    HStack {
+                                        Text(event.name ?? "")
+                                        Spacer()
+                                        Text(event.date?.eventDisplayFormat ?? "")
+                                    }
                                 }
                             }
+                            .onDelete(perform: removeEvent)
                         }
-                        .onDelete(perform: removeEvent)
+                        .listStyle(PlainListStyle())
                     }
-          //          .listStyle(PlainListStyle())
                 }
             }
         }
@@ -118,12 +119,6 @@ extension Date {
     }
 }
 
-private let itemFormatter: DateFormatter = {
-    let formatter = DateFormatter()
-    formatter.dateStyle = .short
-    formatter.timeStyle = .short
-    return formatter
-}()
 
 struct EventView_Previews: PreviewProvider {
     static var previews: some View {

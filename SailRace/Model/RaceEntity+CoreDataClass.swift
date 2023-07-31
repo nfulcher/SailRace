@@ -2,7 +2,7 @@
 //  RaceEntity+CoreDataClass.swift
 //  SailRace
 //
-//  Created by Neil Fulcher on 14/07/2023.
+//  Created by Neil Fulcher on 30/07/2023.
 //
 //
 

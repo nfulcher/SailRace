@@ -2,7 +2,7 @@
 //  RaceEntity+CoreDataProperties.swift
 //  SailRace
 //
-//  Created by Neil Fulcher on 14/07/2023.
+//  Created by Neil Fulcher on 30/07/2023.
 //
 //
 
@@ -16,13 +16,28 @@ extension RaceEntity {
         return NSFetchRequest<RaceEntity>(entityName: "RaceEntity")
     }
 
-    @NSManaged public var eventName: String?
-    @NSManaged public var name: String?
     @NSManaged public var placing: String?
-    @NSManaged public var raceNumber: Int64
     @NSManaged public var raceID: UUID?
-    @NSManaged public var event: EventEntity?
+    @NSManaged public var raceNumber: Int64
+    @NSManaged public var event: NSSet?
     @NSManaged public var racers: NSSet?
+
+}
+
+// MARK: Generated accessors for event
+extension RaceEntity {
+
+    @objc(addEventObject:)
+    @NSManaged public func addToEvent(_ value: EventEntity)
+
+    @objc(removeEventObject:)
+    @NSManaged public func removeFromEvent(_ value: EventEntity)
+
+    @objc(addEvent:)
+    @NSManaged public func addToEvent(_ values: NSSet)
+
+    @objc(removeEvent:)
+    @NSManaged public func removeFromEvent(_ values: NSSet)
 
 }
 

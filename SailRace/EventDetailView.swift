@@ -22,39 +22,35 @@ struct EventDetailView: View {
     @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)]) var skippers: FetchedResults<SkipperEntity>
  
     var body: some View {
-        
+      
         VStack  {
-            
-            // Display selected Event detail
-            List(fetchRequest, id: \.self) { event in
-                HStack {
-                    Text(event.wrappedEventName)
-                    //   Text(event.name ?? "")
-                    Spacer()
-                    Text(event.wrappedEventDate.eventDisplayFormat)
-                    //   Text(event.date?.eventDisplayFormat ?? "")
-                }
-                
-                // List the competitors allocated to the selected event (originally from SkipperAllocatedView)
-                Section("Competitors") {
-                    ForEach(event.competitorArray, id: \.self) { skipper in
+                // Display selected Event detail
+                List(fetchRequest, id: \.self) { event in
+                    Section("Event") {
                         HStack {
-                            Text(skipper.wrappedName)
-                                .onTapGesture {
-                                    event.removeFromCompetitors(skipper)
-                                    try! viewContext.save()
-                                }
+                            Text(event.wrappedEventName)
+                            //   Text(event.name ?? "")
                             Spacer()
-                            Text(skipper.wrappedBoatNumber)
+                            Text(event.wrappedEventDate.eventDisplayFormat)
+                            //   Text(event.date?.eventDisplayFormat ?? "")
                         }
                     }
-                }
-            }
-            
+                    // List the competitors allocated to the selected event (originally from SkipperAllocatedView)
+                    Section("Competitors") {
+                        ForEach(event.competitorArray, id: \.self) { skipper in
+                            HStack {
+                                Text(skipper.wrappedName)
+                                    .onTapGesture {
+                                        event.removeFromCompetitors(skipper)
+                                        try! viewContext.save()
+                                    }
+                                Spacer()
+                                Text(skipper.wrappedBoatNumber)
+                            }
+                        }
+                    }
             // Show a list of available Skippers (originally from SkipperAvailableView)
             // Later we'll filter these to show those so far not participating)
-            VStack (alignment: .leading) {
-                List(fetchRequest, id: \.self) { event in
                     Section("Available Skippers") {
                         ForEach(skippers) { skipper in
                             HStack {
@@ -70,8 +66,8 @@ struct EventDetailView: View {
                     }
                 }
             }
+        
         }
-    }
     
     // Paul Hudson Tutorial 6/7
     init(filter: Date) {
