@@ -100,13 +100,13 @@ class CoreDataRElationshipViewModel: ObservableObject {
     
     func addRace() {
         let newRace = RaceEntity(context: manager.context)
-        newRace.event = [events[0]]
-        newRace.racers = [skippers[2]]
-        newRace.placing = "6"
-        newRace.raceNumber = 8
+        newRace.event = [events[1]]
+        newRace.racers = [skippers[0]]
+        newRace.placing = "1"
+        newRace.raceNumber = 1
         save()
     }
-
+    
     func save() {
         skippers.removeAll()
         events.removeAll()
@@ -159,10 +159,10 @@ struct CoreDataRelationships: View {
                     // View the Races Data (Races in RacesView)
                     ScrollView(.horizontal, showsIndicators: true, content: {
                         HStack(alignment: .top) {
-//                            ForEach(vm.races) { duel in
-//                                RacesView(entity: duel)
+                            ForEach(vm.events) { event in
+                                RacesView(entity: event)
                             }
-             //           }
+                        }
                     })
                     
                 }
@@ -217,20 +217,6 @@ struct CoreDataRelationships: View {
                     .bold()
                 Text("Date: \(entity.date?.eventDisplayFormat ?? "")")
                 
-                
-                if let events = entity.competitors?.allObjects as? [EventEntity] {
-                    Text("Events:")
-                        .bold()
-                    Text("Date")
-                    ForEach(events) { event in
-                        HStack {
-                            Text(event.name ?? "")
-                            Spacer()
-                            Text(event.date?.eventDisplayFormat ?? "")
-                        }
-                    }
-                }
-                
                 if let events = entity.competitors?.allObjects as? [SkipperEntity] {
                     Text("Skippers:")
                         .bold()
@@ -243,7 +229,6 @@ struct CoreDataRelationships: View {
                         }
                     }
                 }
-                
             }
             .padding()
             .frame(maxWidth: 300, alignment: .leading)
@@ -259,28 +244,35 @@ struct CoreDataRelationships: View {
         
         var body: some View {
             VStack(alignment: .leading, spacing: 20) {
-                Text("Races:")
                 
+            
+                Text("Name: \(entity.name ?? "")")
+                    .bold()
+                Text("Date: \(entity.date?.eventDisplayFormat ?? "")")
                 
-//                Text("Name: \(entity.name ?? "")")
-//                    .bold()
-//                Text("Date: \(entity.date?.eventDisplayFormat ?? "")")
-//                
-//                
-//                if let eventRaces = entity.event?.allObjects as? [RaceEntity] {
-//                    Text("Event Races:")
-//                        .bold()
-//                    ForEach(eventRaces) { eventRace in
-//                        Text(String(eventRace.raceNumber))
-//                    }
-//                }
-                
-                if let raceSkippers = entity.competitors?.allObjects as? [SkipperEntity] {
-                    Text("Skippers")
+         //       if let events = entity.eventRaces?.allObjects as? [RaceEntity] {
+                if let events = entity.eventRaces?.allObjects as? [RaceEntity] {
+                    Text("Events:")
                         .bold()
-                    ForEach(raceSkippers) { raceSkipper in
-                        Text(raceSkipper.boatNumber ?? "")
-                        
+                    ForEach(events) { event in
+
+                        HStack {
+                            Text("Race:")
+                            Text(String(event.raceNumber))
+                            Spacer()
+                            
+                            Text("Place:")
+                            Text(event.placing ?? "")
+                            Spacer()
+
+//                      if let raceSkips = entity.racesArray as? [SkipperEntity] {
+//
+//                                ForEach(raceSkips) { raceSkip in
+//                                    Text("Skip: ")
+//                                    Text(raceSkip.boatNumber ?? "")
+//                                }
+//                            }
+                        }
                     }
                 }
             }

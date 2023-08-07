@@ -2,7 +2,7 @@
 //  SkipperEntity+CoreDataProperties.swift
 //  SailRace
 //
-//  Created by Neil Fulcher on 30/07/2023.
+//  Created by Neil Fulcher on 06/08/2023.
 //
 //
 
@@ -18,7 +18,6 @@ extension SkipperEntity {
 
     @NSManaged public var boatNumber: String?
     @NSManaged public var name: String?
-    @NSManaged public var skipperID: UUID?
     @NSManaged public var event: NSSet?
     @NSManaged public var races: NSSet?
     
@@ -28,6 +27,12 @@ extension SkipperEntity {
     public var wrappedBoatNumber: String {
         boatNumber ?? "Unknown boat number"
     }
+
+    // Extension to access racers as an array
+    var racersArray: [SkipperEntity] {
+            let set = races as? Set<SkipperEntity> ?? []
+            return set.sorted { $0.name ?? "" < $1.name ?? "" }
+        }
 
 }
 

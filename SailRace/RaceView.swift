@@ -43,27 +43,27 @@ struct RaceView: View {
                     HStack{
                         Text("Race No:")
                         Text(String(race.raceNumber))
-                            .onTapGesture {
-                                race.raceNumber = 9
-                                try! viewContext.save()
-                            }
-                            .onLongPressGesture {
-                                // Delete
-                                viewContext.delete(race)
-                                try! viewContext.save()
-                            }
+//                            .onTapGesture {
+//                                race.raceNumber = 9
+//                                try! viewContext.save()
+//                            }
+//                            .onLongPressGesture {
+//                                // Delete
+//                                viewContext.delete(race)
+//                                try! viewContext.save()
+//                            }
                         Spacer()
                         Text("Boat No:")
-                        Text("441")
+                        Text("01")
                         
                         
                         Spacer()
                         Text("Place:")
                         Text(race.placing ?? "")
-                            .onTapGesture {
-                                race.placing = "2nd"
-                                try! viewContext.save()
-                            }
+//                            .onTapGesture {
+//                                race.placing = "2nd"
+//                                try! viewContext.save()
+//                            }
                     }
                 }
             }
@@ -74,8 +74,10 @@ struct RaceView: View {
         let e = RaceEntity(context: viewContext)
    //     e.name = "Race 1"
    //     e.eventName = "Summer Series"
-        e.raceNumber = 3
-        e.placing = "DNF"
+  //      e.event = [2]
+        e.raceNumber = 6
+//        e.addToEvent = 2
+        e.placing = "1st"
         
         do {
             try viewContext.save()

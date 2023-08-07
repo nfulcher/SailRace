@@ -11,18 +11,19 @@ import SwiftUI
 struct SailRaceApp: App {
     
  // Reinstate the codd below after playing with the CoreDataRelationship file
-  let persistenceController = PersistenceController.shared
+//  let persistenceController = PersistenceController.shared
 
     var body: some Scene {
         WindowGroup {
  // Reinstate HomeView() too
-                HomeView()
+//                HomeView()
             
    // Also this line...
-           .environment(\.managedObjectContext, persistenceController.container.viewContext)
+  //         .environment(\.managedObjectContext, persistenceController.container.viewContext)
             
      // Reinstate this
- //           CoreDataRelationships()
+       
+     CoreDataRelationships()
         }
     }
 }

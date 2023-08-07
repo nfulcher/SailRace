@@ -2,7 +2,7 @@
 //  RaceEntity+CoreDataProperties.swift
 //  SailRace
 //
-//  Created by Neil Fulcher on 30/07/2023.
+//  Created by Neil Fulcher on 06/08/2023.
 //
 //
 
@@ -17,10 +17,32 @@ extension RaceEntity {
     }
 
     @NSManaged public var placing: String?
-    @NSManaged public var raceID: UUID?
     @NSManaged public var raceNumber: Int64
     @NSManaged public var event: NSSet?
     @NSManaged public var racers: NSSet?
+    
+    public var wrappedRaceNumber: Int {
+        Int(raceNumber)
+    }
+    public var wrappedPlacing: String {
+        placing ?? "1st"
+    }
+    
+    public var eventArray: [EventEntity] {
+        let set = event as? Set<EventEntity> ?? []
+        
+        return set.sorted {
+            $0.wrappedEventName < $1.wrappedEventName
+        }
+    }
+    
+    public var racersArray: [SkipperEntity] {
+        let set = racers as? Set<SkipperEntity> ?? []
+        
+        return set.sorted {
+            $0.wrappedBoatNumber < $1.wrappedBoatNumber
+        }
+    }
 
 }
 

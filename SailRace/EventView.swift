@@ -35,7 +35,7 @@ struct EventView: View {
                         }
                         .buttonStyle(.borderedProminent)
                     }
-                    
+                }
                     List {
                         Section("Existing Events") {
                             ForEach(events) { event in
@@ -54,7 +54,6 @@ struct EventView: View {
                 }
             }
         }
-    }
     
     func removeEvent(at offsets: IndexSet) {
         for index in offsets {
