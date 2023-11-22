@@ -16,7 +16,7 @@ struct RaceView: View {
         @FetchRequest(sortDescriptors: []) var events: FetchedResults<EventEntity>
     
     // Add EventEntity fetch
-//    @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)]) var event: FetchedResults<EventEntity>
+ //   @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "name", ascending: true)]) var event: FetchedResults<EventEntity>
     
     
     @FetchRequest(sortDescriptors: [NSSortDescriptor(key: "raceNumber", ascending: true)]) var races: FetchedResults<RaceEntity>
@@ -29,52 +29,66 @@ struct RaceView: View {
             }
             
             HStack {
-          //      Text($event.wrappedEventName)
-                Text("Event:")
-                Spacer()
-       //         Text(event.wrappedEventDate.eventDisplayFormat)
+                //      Text($event.wrappedEventName)
+                //             Text("Event:")
+                //           Spacer()
+                //         Text(event.wrappedEventDate.eventDisplayFormat)
                 //   Text(event.date?.eventDisplayFormat ?? "")
             }
             
             
             List {
-                ForEach(races) {race in
+                
+                let thisEvent = events[0]
+                
+                //ForEach(events[0]) { event in
+                HStack {
+                    Text("Event Name: ")
+                    Text(thisEvent.name ?? "")
+                    Spacer()
+                    Text("Date: ")
+                    Text(thisEvent.date?.eventDisplayFormat ?? "")
+                    //     Text(String(thisEvent.date))
+                }
                     
-                    HStack{
-                        Text("Race No:")
-                        Text(String(race.raceNumber))
-//                            .onTapGesture {
-//                                race.raceNumber = 9
-//                                try! viewContext.save()
-//                            }
-//                            .onLongPressGesture {
-//                                // Delete
-//                                viewContext.delete(race)
-//                                try! viewContext.save()
-//                            }
-                        Spacer()
-                        Text("Boat No:")
-                        Text("01")
+                    ForEach(races) {race in
                         
-                        
-                        Spacer()
-                        Text("Place:")
-                        Text(race.placing ?? "")
-//                            .onTapGesture {
-//                                race.placing = "2nd"
-//                                try! viewContext.save()
-//                            }
+                        HStack{
+                            Text("Race No:")
+                            Text(String(race.raceNumber))
+                            //                            .onTapGesture {
+                            //                                race.raceNumber = 9
+                            //                                try! viewContext.save()
+                            //                            }
+                                                        .onLongPressGesture {
+                                                            // Delete
+                                                            viewContext.delete(race)
+                                                            try! viewContext.save()
+                                                        }
+                            Spacer()
+                            Text("Boat No:")
+                            Text("24")
+                            
+                            
+                            Spacer()
+                            Text("Place:")
+                            Text(race.placing ?? "")
+                            //                            .onTapGesture {
+                            //                                race.placing = "2nd"
+                            //                                try! viewContext.save()
+                            //                            }
+                        }
                     }
                 }
             }
         }
-    }
+//    }
     
     private func addRace() {
         let e = RaceEntity(context: viewContext)
    //     e.name = "Race 1"
    //     e.eventName = "Summer Series"
-  //      e.event = [2]
+    //    e.event = [4]
         e.raceNumber = 6
 //        e.addToEvent = 2
         e.placing = "1st"

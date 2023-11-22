@@ -35,6 +35,44 @@ struct EventDetailView: View {
                             //   Text(event.date?.eventDisplayFormat ?? "")
                         }
                     }
+                    
+                    
+                    // List the races allocated to the selected event
+                    Section("Races") {
+                        ForEach(event.racesArray, id: \.self) { race in
+                            HStack {
+                                
+                                Text(String(race.raceNumber))
+                                Spacer()
+                                Text(race.placing ?? "")
+                                
+  //                              Text(String(race.wrappedRaceNumber))
+//                                    .onTapGesture {
+//                                        event.removeFromCompetitors(skipper)
+//                                        try! viewContext.save()
+//                                    }
+                                
+//                                Spacer()
+//                                Text(race.wrappedPlacing)
+                                
+//                                ForEach(event.racersArray, id: \.self) { racer in
+//                                    HStack {
+//                                        Text("Boat No: ")
+//                                        Text(race.wrappedBoatNumber)
+//                                    }
+//                                }
+                                
+                            }
+                        }
+                    }
+                    
+                    
+                    
+                    
+                    
+                    
+                    
+                    
                     // List the competitors allocated to the selected event (originally from SkipperAllocatedView)
                     Section("Competitors") {
                         ForEach(event.competitorArray, id: \.self) { skipper in
@@ -49,6 +87,11 @@ struct EventDetailView: View {
                             }
                         }
                     }
+                    
+                    
+                    
+                    
+                    
             // Show a list of available Skippers (originally from SkipperAvailableView)
             // Later we'll filter these to show those so far not participating)
                     Section("Available Skippers") {

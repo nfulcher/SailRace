@@ -29,10 +29,10 @@ extension SkipperEntity {
     }
 
     // Extension to access racers as an array
-    var racersArray: [SkipperEntity] {
-            let set = races as? Set<SkipperEntity> ?? []
-            return set.sorted { $0.name ?? "" < $1.name ?? "" }
-        }
+//    var racersArray: [SkipperEntity] {
+//            let set = races as? Set<SkipperEntity> ?? []
+//            return set.sorted { $0.name ?? "" < $1.name ?? "" }
+//        }
 
 }
 

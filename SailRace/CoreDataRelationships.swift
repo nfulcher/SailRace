@@ -210,17 +210,19 @@ struct CoreDataRelationships: View {
     struct RegattaView: View {
         
         let entity: EventEntity
+     //   let someRaces: RaceEntity
         
         var body: some View {
-            VStack(alignment: .leading, spacing: 20) {
+            
+               VStack(alignment: .leading, spacing: 20) {
                 Text("Name: \(entity.name ?? "")")
                     .bold()
                 Text("Date: \(entity.date?.eventDisplayFormat ?? "")")
-                
+
                 if let events = entity.competitors?.allObjects as? [SkipperEntity] {
                     Text("Skippers:")
                         .bold()
-                    
+
                     ForEach(events) { event in
                         HStack {
                             Text(event.name ?? "")
@@ -235,6 +237,8 @@ struct CoreDataRelationships: View {
             .background(Color.green.opacity(0.5))
             .cornerRadius(10)
             .shadow(radius: 10)
+            
+            
         }
     }
     
